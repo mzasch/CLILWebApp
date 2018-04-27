@@ -1,49 +1,50 @@
 package clilNote;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement
 public class Date {
     private int day;
     private int month;
     private int year;
 
-    /**
-     * @return the day
-     */
+    @XmlElement
     public int getDay() {
         return day;
     }
 
-    /**
-     * @param day the day to set
-     */
     public void setDay(int day) {
         this.day = day;
     }
 
-    /**
-     * @return the month
-     */
+    @XmlElement
     public int getMonth() {
         return month;
     }
 
-    /**
-     * @param month the month to set
-     */
     public void setMonth(int month) {
         this.month = month;
     }
 
-    /**
-     * @return the year
-     */
+    @XmlElement
     public int getYear() {
         return year;
     }
 
-    /**
-     * @param year the year to set
-     */
     public void setYear(int year) {
         this.year = year;
+    }
+    
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof Date)) {
+            return false;
+        }
+
+        Date that = (Date) other;
+        
+        return (this.day == that.getDay())
+            && (this.month == that.getMonth())
+            && (this.year == that.getYear());
     }
 }

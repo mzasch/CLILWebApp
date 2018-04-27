@@ -12,9 +12,9 @@ public class NoteBook {
         return noteList;
     }
     
-    public void AddNote(String description)
+    public void AddNote(String description, Date d)
     {
-        Note t = new Note(description);
+        Note t = new Note(description, d);
         noteList.add(t);
     }
     
@@ -28,6 +28,16 @@ public class NoteBook {
         NoteBook res = new NoteBook();
         for (Note note : noteList) {
             if(note.getDescription().contains(desc))
+                res.AddNote(note);
+        }
+        return res;
+    }
+    
+    public NoteBook GetNoteByDate(Date d)
+    {
+        NoteBook res = new NoteBook();
+        for (Note note : noteList) {
+            if(note.getDate() == d)
                 res.AddNote(note);
         }
         return res;

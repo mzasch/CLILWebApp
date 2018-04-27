@@ -5,12 +5,13 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement
 public class Note {
     private String description;
-    private String date;
+    private Date date;
 
     public Note() {}
     
-    public Note(String description) {
+    public Note(String description, Date d) {
         this.description = description;
+        this.date = d;
     }
 
     @XmlElement
@@ -20,6 +21,15 @@ public class Note {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @XmlElement
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
     
     
