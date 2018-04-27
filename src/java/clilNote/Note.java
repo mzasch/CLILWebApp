@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement
 public class Note {
     private String description;
+    private String date;
 
     public Note() {}
     
